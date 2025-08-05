@@ -22,8 +22,8 @@ RUN python -m pip install --upgrade pip setuptools wheel
 RUN pip install --force-reinstall --no-cache-dir torch==2.1.2 torchvision==0.16.2 \
     --extra-index-url https://download.pytorch.org/whl/cu118
 
-# Install xformers with CUDA 11.8 support
-RUN pip install xformers --extra-index-url https://download.pytorch.org/whl/cu118
+# Install xformers compatible with PyTorch 2.1.2 and CUDA 11.8
+RUN pip install xformers==0.0.23.post1 --extra-index-url https://download.pytorch.org/whl/cu118
 
 # Set common environment variables
 ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
